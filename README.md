@@ -34,6 +34,11 @@ Native Node.js binding for ultra-fast Windows Registry access.
 
 ## Installation & build
 
+**Install from npm**
+```bash
+npm install winreg-native
+```
+
 > This module contains native code and must be built for the target Node.js version and platform (Windows only).
 
 1. Ensure you have a working **Windows** build environment and Node.js development toolchain (Python, Visual Studio Build Tools, `node-gyp`).
