@@ -6,7 +6,6 @@
     "node-gyp": "^11.3.0"
   },
   "devDependencies": {
-    "electron": "^37.2.6",
     "electron-rebuild": "^3.2.9"
   }
 }
