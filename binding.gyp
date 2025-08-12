@@ -2,19 +2,32 @@
   "targets": [
     {
       "target_name": "winreg",
-      "sources": [ "winreg.cpp" ],
+      "sources": [
+        "src/convert.cpp",
+        "src/registry.cpp",
+        "src/winreg.cpp"
+      ],
       "include_dirs": [
-        "<!(node -p \"require('path').dirname(require.resolve('nan'))\")"
+        "<!(node -p \"require('path').dirname(require.resolve('nan'))\")",
+        "src"
       ],
       "cflags!": [ "-fno-exceptions" ],
       "cflags_cc!": [ "-fno-exceptions" ],
-      "conditions": [
-        ["OS=='win'", {
-          "msvs_settings": {
-            "VCCLCompilerTool": { "ExceptionHandling": 1 }
-          }
-        }]
-      ]
+      "msvs_settings": {
+        "VCCLCompilerTool": {
+          "ExceptionHandling": 1,
+          "Optimization": 3,
+          "InlineFunctionExpansion": 2,
+          "FavorSizeOrSpeed": 1,
+          "OmitFramePointers": "true",
+          "EnableFiberSafeOptimizations": "true",
+          "WholeProgramOptimization": "true",
+          "AdditionalOptions": [
+            "/GL",
+            "/arch:AVX2"
+          ]
+        }
+      }
     }
   ]
 }
