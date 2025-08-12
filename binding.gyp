@@ -1,11 +1,11 @@
 {
   "targets": [
     {
-      "target_name": "winreg",
+      "target_name": "winreg-native",
       "sources": [
         "src/convert.cpp",
         "src/registry.cpp",
-        "src/winreg.cpp"
+        "src/main.cpp"
       ],
       "include_dirs": [
         "<!(node -p \"require('path').dirname(require.resolve('nan'))\")",
