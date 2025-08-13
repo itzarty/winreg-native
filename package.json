@@ -5,7 +5,7 @@
     "node-gyp": "^11.3.0"
   },
   "name": "winreg-native",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "index.js",
   "description": "Native node.js module for interacting with Windows Registry",
   "scripts": {

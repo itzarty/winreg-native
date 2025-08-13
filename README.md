@@ -1,4 +1,4 @@
-# winreg
+# winreg-native
 
 Native Node.js binding for ultra-fast Windows Registry access.
 
@@ -58,7 +58,7 @@ node-gyp build
 ## Quick start
 
 ```js
-const winreg = require('winreg');
+const winreg = require('winreg-native');
 
 (async () => {
   const v = await winreg.getValue(winreg.HKLM, 'SOFTWARE\\MyApp', 'InstallPath');
