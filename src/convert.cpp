@@ -4,11 +4,19 @@
 #include <nan.h>
 #include <windows.h>
 
+static std::wstring utf8_to_utf16( const std::string& utf8 ) {
+	int size = MultiByteToWideChar( CP_UTF8, 0, utf8.data( ), ( int ) utf8.size( ), NULL, 0 );
+	std::wstring wstr( size, 0 );
+	MultiByteToWideChar( CP_UTF8, 0, utf8.data( ), ( int ) utf8.size( ), &wstr[ 0 ], size );
+	return wstr;
+}
+
 void ConvertJsValue( v8::Local<v8::Value>& value, DWORD& type, std::vector<BYTE>& data ) {
 	if( value->IsString( ) ) {
 		Nan::Utf8String utf8( value );
 		std::string s( *utf8 ? *utf8 : "" );
-		data.assign( reinterpret_cast<const BYTE*>( s.c_str( ) ), reinterpret_cast<const BYTE*>( s.c_str( ) ) + s.size( ) + 1 );
+		std::wstring ws = utf8_to_utf16( s );
+		data.assign( reinterpret_cast<const BYTE*>( ws.c_str( ) ), reinterpret_cast<const BYTE*>( ws.c_str( ) ) + ( ws.size( ) + 1 ) * sizeof( wchar_t ) );
 		type = REG_SZ;
 	} else if( value->IsBoolean( ) ) {
 		BOOL b = value->BooleanValue( Nan::GetCurrentContext( )->GetIsolate( ) );
