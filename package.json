@@ -19,7 +19,7 @@
   "license": "MIT",
   "gypfile": true,
   "bugs": {
-    "url": "https://github.com/itzarty/node-winreg/issues"
+    "url": "https://github.com/itzarty/winreg-native/issues"
   },
-  "homepage": "https://github.com/itzarty/node-winreg#readme"
+  "homepage": "https://github.com/itzarty/winreg-native#readme"
 }
